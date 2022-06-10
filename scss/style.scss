@@ -1,0 +1,159 @@
+//============================
+//	変数
+//============================
+$color_bg: #bfe9f6; // 背景
+$color_score: #20297e; // スコア
+$color_message: #d12f2f; // メッセージ
+$color_button: #009944; // ボタン
+$color_button-shadow: #00662d; // ボタンの影
+
+
+
+//============================
+//	スタイル
+//============================
+body {
+  background-color: $color_bg;
+}
+
+
+/* タイトル */
+.title {
+  text-align: center;
+  padding: 10px 0;
+}
+
+
+/* スコア */
+.score-text {
+  color: $color_score;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* メッセージ */
+.message {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: $color_message;
+}
+
+
+/* リスタートボタン */
+.restart-button {
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: $color_button;
+  box-shadow: 0 5px 0 $color_button-shadow;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  display: none;
+  &:hover {
+    opacity: .7;
+    transition: opacity .3s;
+  }
+  &:active {
+    box-shadow: 0 1px 0 $color_button-shadow;
+    margin-top: 4px;
+  }
+}
+.restart-button.show {
+  display: block;
+}
+
+
+/* カード全体 */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+
+/* カード横列 */
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* カード表面・裏面の親コンテナ */
+.card-parent {
+  position: relative;
+}
+
+
+/* カード表面・裏面共通 */
+.card, .card-back {
+  display: block;
+  width: 60px;
+  height: 100px;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+
+/* カード表面 */
+.card {
+  background-color: #fff;
+  user-select: none;
+  margin-bottom: 10px;
+  position: relative;
+  img {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+/* 裏面 */
+.card-back {
+  background-image: url("../images/cardback.jpg");
+  background-size: cover;
+  cursor: pointer;
+  z-index: 10;
+}
+.card-back.open {
+  z-index: -10;
+}
+.card-back.clear {
+  background-image: none;
+  background-color: $color_bg;
+  border: 2px solid $color_bg;
+  cursor: auto;
+  z-index: 10;
+}
+
+
+/* フィルター */
+.filter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -50;
+}
+.filter.block {
+  z-index: 50;
+}
